@@ -24,11 +24,11 @@ La classe centrale du système (CrackerApp) utilise une fabrique pour instancier
 
 Le projet repose principalement sur l’utilisation des *patrons de conception*  Factory Method et  Abstract Factory afin de garantir une modularité et une extensibilité du système.
 
-### 1. Patron Fabrique (Factory Method / Abstract Factory)
+##  Patron Fabrique (Factory Method / Abstract Factory)
 
 Nous avons utilisé une Fabrique pour instancier dynamiquement les bonnes *stratégies d’attaque* (Brute Force ou Dictionnaire) en fonction du type de *cible* (locale ou en ligne), selon les arguments fournis à l’exécution.
 
-#### Justification :
+## Justification :
 
 - Permet de *séparer la logique d’instanciation* du reste du programme.
 - Facilite l’*ajout de nouvelles variantes* (ex. : nouvelle attaque, nouvelle cible) sans modifier la structure existante.
@@ -41,7 +41,7 @@ La *Fabrique* est responsable de créer une combinaison (Stratégie d’attaque 
 
 Le système permet de simuler quatre variantes d’attaque en combinant deux types de stratégies (Brute Force et Dictionnaire) avec deux types de cibles (locale et en ligne). Ces variantes sont sélectionnées dynamiquement à l’aide des arguments fournis à l’exécution.
 
-### 1. Brute Force + Cible Locale
+## 1. Brute Force + Cible Locale
 
 Cette variante génère automatiquement toutes les combinaisons de caractères possibles (a-z, 0-9, etc.) jusqu’à une certaine longueur maximale.  
 Le mot de passe généré est testé sur une cible locale simulée par un programme Java contenant les identifiants en dur.
@@ -49,7 +49,7 @@ Le mot de passe généré est testé sur une cible locale simulée par un progra
 -  Avantage : rapide à exécuter en local, sans dépendances réseau.
 -  Limite : inefficace pour des mots de passe longs.
 
-### 2. Brute Force + Cible en ligne
+## 2. Brute Force + Cible en ligne
 
 Même approche que ci-dessus, mais cette fois les tentatives sont envoyées vers un serveur distant via des requêtes HTTP.  
 La réponse HTML permet de détecter si la tentative est réussie ou non.
@@ -57,7 +57,7 @@ La réponse HTML permet de détecter si la tentative est réussie ou non.
 - Simule une attaque réelle contre un formulaire web(login.php).
 - Beaucoup plus lent à cause des temps de réponse réseau.
 
-###  3. Dictionnaire + Cible Locale
+##  3. Dictionnaire + Cible Locale
 
 Une liste de mots de passe potentiels est lue depuis un fichier texte (dictionnaire.txt).  
 Chaque mot est testé sur la cible locale. C’est une méthode plus rapide et plus réaliste que le Brute Force, si le dictionnaire est bien choisi.
@@ -65,7 +65,7 @@ Chaque mot est testé sur la cible locale. C’est une méthode plus rapide et p
 - Rapide et efficace si le mot de passe est dans le dictionnaire.
 -  Échec garanti si le mot n’y figure pas.
 
-### 4. Dictionnaire + Cible en ligne
+## 4. Dictionnaire + Cible en ligne
 
 Le dictionnaire est utilisé pour tester des mots de passe contre une cible en ligne.  
 Chaque mot génère une requête HTTP vers un formulaire PHP distant(login.php).
@@ -77,22 +77,22 @@ Chaque mot génère une requête HTTP vers un formulaire PHP distant(login.php).
 
 Plusieurs axes d'amélioration peuvent être envisagés pour enrichir et renforcer le projet :
 
-###  1. Optimisation des performances
+##  1. Optimisation des performances
 
 - Utiliser le *multithreading* pour accélérer le Brute Force.
 - Ajouter une *barre de progression* ou un affichage du nombre de tentatives.
 - Gérer des files de tâches pour répartir les requêtes en ligne.
 
-###  2. Extension de la fabrique
+##  2. Extension de la fabrique
 
 - Créer une *interface graphique (GUI)* pour lancer les attaques sans ligne de commande.
 
-### 3. Renforcement du côté "attaque en ligne"
+## 3. Renforcement du côté "attaque en ligne"
 
 - Gérer les *cookies/sessions HTTP*
 - Ajouter la gestion des *CAPTCHA* ou mécanismes anti-bot (au moins leur détection)
 
-### .4 Logs et reporting
+## .4 Logs et reporting
 
 - Ajouter un *système de logs* pour tracer toutes les tentatives (succès/échecs).
 - Générer un *rapport final* (ex. : durée, mot de passe trouvé, nombre de tentatives…).
