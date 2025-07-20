@@ -7,7 +7,7 @@ Ce rapport présente une synthèse de l’architecture logicielle du projet, le 
 
 ---
 
-#### 1. Architecture Logicielle
+## 1. Architecture Logicielle
 
 L’architecture du projet repose sur une séparation claire des responsabilités et l’utilisation du patron de conception *Fabrique* (Factory Method et Abstract Factory). Le système est conçu pour être *modulaire* et *évolutif*, permettant de combiner dynamiquement deux types de stratégies d’attaque (Brute Force, Dictionnaire) avec deux types de cibles (locale, en ligne).
 
@@ -19,7 +19,7 @@ La classe centrale du système (CrackerApp) utilise une fabrique pour instancier
 
 [Diagramme UML principal](Password-Cracker-Factory- /Classe UML.PNG)  
 
-#### 2. Choix des Patrons de Conception
+## 2. Choix des Patrons de Conception
 ### Patrons de conception utilisés et justification
 
 Le projet repose principalement sur l’utilisation des *patrons de conception*  Factory Method et  Abstract Factory afin de garantir une modularité et une extensibilité du système.
@@ -37,7 +37,7 @@ Nous avons utilisé une Fabrique pour instancier dynamiquement les bonnes *strat
 
 La *Fabrique* est responsable de créer une combinaison (Stratégie d’attaque + Cible)
 
-#### 3. Variantes Implémentées
+## 3. Variantes Implémentées
 
 Le système permet de simuler quatre variantes d’attaque en combinant deux types de stratégies (Brute Force et Dictionnaire) avec deux types de cibles (locale et en ligne). Ces variantes sont sélectionnées dynamiquement à l’aide des arguments fournis à l’exécution.
 
@@ -73,7 +73,7 @@ Chaque mot génère une requête HTTP vers un formulaire PHP distant(login.php).
 -  Utilisée dans la pratique pour attaquer des services web.
 - Peut être ralentie ou bloquée par des mécanismes de sécurité .
 
-#### 4. Pistes d’Amélioration
+## 4. Pistes d’Amélioration
 
 Plusieurs axes d'amélioration peuvent être envisagés pour enrichir et renforcer le projet :
 
@@ -87,7 +87,7 @@ Plusieurs axes d'amélioration peuvent être envisagés pour enrichir et renforc
 
 - Créer une *interface graphique (GUI)* pour lancer les attaques sans ligne de commande.
 
-#3# 3. Renforcement du côté "attaque en ligne"
+### 3. Renforcement du côté "attaque en ligne"
 
 - Gérer les *cookies/sessions HTTP*
 - Ajouter la gestion des *CAPTCHA* ou mécanismes anti-bot (au moins leur détection)
