@@ -17,7 +17,9 @@ La classe centrale du système (CrackerApp) utilise une fabrique pour instancier
 
 ### Diagramme de Classes UML
 
-[Diagramme UML principal](Password-Cracker-Factory- /Classe UML.PNG)  
+[Diagramme UML principal](Password-Cracker-Factory- /Classe UML.PNG)
+![Logo](https://example.com/logo.png)
+
 
 ## 2. Choix des Patrons de Conception
 ### Patrons de conception utilisés et justification
