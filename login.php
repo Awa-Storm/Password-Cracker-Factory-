@@ -6,24 +6,27 @@ header('Access-Control-Allow-Origin: *');
 
 // Vérification des identifiants
 function checkCredentials($login, $password) {
+    
     // Dans un cas réel, vous devriez utiliser une base de données et du hachage de mot de passe
     $valid_credentials = [
         'admin' => 'passer123',  // À ne pas faire en production
         'user1' => 'password123',
         'test' => 'test123'
     ];
-    
+    // Vérifie si le login existe et si le mot de passe correspond
     return array_key_exists($login, $valid_credentials) && $password === $valid_credentials[$login];
 }
 
-// Traitement du formulaire
+// Initialisation des variables de message et d'état d'authentification
 $message = '';
 $isAuthenticated = false;
 
+// Traitement du formulaire POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $login = $_POST['login'] ?? '';
     $password = $_POST['password'] ?? '';
     
+    // Vérifie que les champs ne sont pas vides
     if (empty($login) || empty($password)) {
         $message = 'Veuillez remplir tous les champs';
     } else if (checkCredentials($login, $password)) {
@@ -32,11 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $message = 'Échec de connexion';
     }
+
+    // Traitement pour les requêtes GET (utilisé par OnlineTarget)
 } else if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['login']) && isset($_GET['password'])) {
     // Pour la compatibilité avec OnlineTarget
     $login = $_GET['login'];
     $password = $_GET['password'];
     
+    // Vérifie les identifiants et affiche le résultat
     if (checkCredentials($login, $password)) {
         echo "Connexion réussie pour l'utilisateur: " . htmlspecialchars($login);
     } else {
@@ -53,6 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
     <style>
+
+        /* Styles pour le formulaire et les messages */
         body {
             font-family: Arial, sans-serif;
             max-width: 600px;
@@ -106,12 +114,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h1>Connexion</h1>
     
+     <!-- Affiche le message de résultat si présent -->
     <?php if (!empty($message)): ?>
         <div class="message <?php echo $isAuthenticated ? 'success' : 'error'; ?>">
             <?php echo htmlspecialchars($message); ?>
         </div>
     <?php endif; ?>
     
+    <!-- Affiche le formulaire si l'utilisateur n'est pas authentifié -->
     <?php if (!$isAuthenticated): ?>
         <form method="POST" action="">
             <div class="form-group">
