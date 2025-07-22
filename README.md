@@ -59,7 +59,7 @@ La réponse HTML permet de détecter si la tentative est réussie ou non.
 - Simule une attaque réelle contre un formulaire web(login.php).
 - Beaucoup plus lent à cause des temps de réponse réseau.
 
-###  3. Dictionnaire + Cible Locale
+###  3. Dictionnaire + Cible Locale 
 
 Une liste de mots de passe potentiels est lue depuis un fichier texte (dictionnaire.txt).  
 Chaque mot est testé sur la cible locale. C’est une méthode plus rapide et plus réaliste que le Brute Force, si le dictionnaire est bien choisi.
