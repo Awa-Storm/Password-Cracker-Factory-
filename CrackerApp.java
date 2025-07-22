@@ -5,7 +5,7 @@ public class CrackerApp {
 
         // Vérifie que deux arguments sont fournis (type d'attaque et type de cible)
         if (args.length < 2) {
-            System.out.println("Usage: java CrackerApp [brute|dict] [local|online]");
+            System.out.println("Usage: java CrackerApp [brute|dict] [local|online]"); 
             return;// Arrête le programme si les arguments sont manquants
         }
 
