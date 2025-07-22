@@ -8,7 +8,7 @@ public class BruteForceFactory implements CrackerFactory {
     public BruteForceFactory(String targetType) { 
         this.targetType = targetType;
     }
-    // Crée et retourne une attaque de type BruteForceAttack
+    // Crée et retourne une attaque de type BruteForceAttack 
     public Attack createAttack() {
         return new BruteForceAttack();
     }
