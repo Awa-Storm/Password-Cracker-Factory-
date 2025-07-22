@@ -11,7 +11,7 @@ function checkCredentials($login, $password) {
     $valid_credentials = [
         'admin' => 'passer123',  // À ne pas faire en production
         'user1' => 'password123',
-        'test' => 'test123'
+        'test' => 'test123' 
     ];
     // Vérifie si le login existe et si le mot de passe correspond
     return array_key_exists($login, $valid_credentials) && $password === $valid_credentials[$login];
