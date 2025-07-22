@@ -5,7 +5,7 @@ public class BruteForceFactory implements CrackerFactory {
     private String targetType;// Type de cible ("local" ou autre)
     
     // Constructeur qui initialise le type de cible
-    public BruteForceFactory(String targetType) {
+    public BruteForceFactory(String targetType) { 
         this.targetType = targetType;
     }
     // Crée et retourne une attaque de type BruteForceAttack
