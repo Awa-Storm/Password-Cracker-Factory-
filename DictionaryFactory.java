@@ -3,7 +3,7 @@ public class DictionaryFactory implements CrackerFactory {
 
     private String targetType;// Type de cible ("local" ou "online")
 
-    // Constructeur qui initialise le type de cible
+    // Constructeur qui initialise le type de cible 
     public DictionaryFactory(String targetType) {
         this.targetType = targetType;
     } 
