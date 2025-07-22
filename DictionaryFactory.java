@@ -6,7 +6,7 @@ public class DictionaryFactory implements CrackerFactory {
     // Constructeur qui initialise le type de cible
     public DictionaryFactory(String targetType) {
         this.targetType = targetType;
-    }
+    } 
     // Crée et retourne une attaque de type DictionaryAttack
     public Attack createAttack() {
         return new DictionaryAttack();
